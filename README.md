@@ -10,6 +10,8 @@ For such a purpose, let's utilize distributed frameworks like **Hadoop** and **S
 - Hadoop 2.7
 - Spark 1.6.0
 
+To run below commands, it is asusmed the reader has a functionnal Hadoop/Spark cluster of machines.
+
 # Usage
 In any case, please:
 ~~~
