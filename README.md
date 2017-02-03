@@ -16,7 +16,7 @@ In any case, please:
 git clone https://github.com/antisrdy/dimsum
 cd dimsum
 ~~~
-## Hadoop implementation
+## Hadoop
 ### Naive implementation
 To run the naive computation of A.TA, please run:
 ~~~
@@ -33,4 +33,15 @@ To execute all this, please run:
 ~~~
 python take_off.py m n
 ~~~
-## Spark test
+## Spark
+To run the implementation of DIMSUM in spark for computing column similarities, please run :
+~~~
+./spark/bin/spark-submit \
+--master spark://master-ip \
+--conf spark.eventLog.enabled=true \
+--conf spark.eventLog.dir="/tmp" \
+--packages "com.amazonaws:aws-java-sdk:1.7.4,org.apache.hadoop:hadoop-aws:2.7.1" \
+--executor-memory 13g \
+--driver-memory 13g  \
+--class DIMSUM_ENSAE.Job spark.jar
+~~~
