@@ -1,7 +1,7 @@
 # Welcome
 Hello, you've reached DIMSUM, a school project realized at ENSAE in February 2017.
 
-End goal is to compute singular values of big matrices.
+End goal is to compute singular values of big matrices, inspired by http://stanford.edu/~rezab/papers/dimsum.pdf
 
 For such a purpose, let's utilize distributed frameworks like **Hadoop** and **Spark**.
 
