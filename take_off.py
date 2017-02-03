@@ -1,4 +1,18 @@
 # -*- coding: utf-8 -*-
+'''
+author: antoine isnardy
+author: satya vengathesa sarma
+
+This short script handles the global pipeline:
+    - Generation of a sparse matrix A
+    - Computation of singular values using DIMSUM
+    - Comparison with true values
+
+Only paramters are:
+    - m: number of rows (can be very large)
+    - n: number of columns (should not be huge)
+    - naive: compute A.T*A in a naive map-reduce fashion
+'''
 #%%
 import numpy as np
 import subprocess
