@@ -1,7 +1,9 @@
 # Welcome
-Hello, you've reached DIMSUM, a school project aimed at computing singular values of big matrices.
+Hello, you've reached DIMSUM, a school project realized at ENSAE in February 2017.
 
-Main goal was to utilize distributed frameworks like Hadoop and Spark.
+End goal is to compute singular values of big matrices.
+
+For such a purpose, let's utilize distributed frameworks like **Hadoop** and **Spark**.
 
 # Requirements
 - Java 8
