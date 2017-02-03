@@ -22,6 +22,7 @@ To run the naive computation of A.TA, please run:
 ~~~
 python take_off.py m n naive
 ~~~
+`m` and `n` being matrix shape.
 ### DIMSUM implementation
 This subsection tells the reader how to run the algorithm in a distributed fashion from scratch:
 - Generation of a large sparse matrix
@@ -32,5 +33,4 @@ To execute all this, please run:
 ~~~
 python take_off.py m n
 ~~~
-`m` and `n` being matrix shape.
 ## Spark test
