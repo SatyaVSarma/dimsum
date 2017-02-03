@@ -75,7 +75,8 @@ public class DimSum {
 								if (p_k >= rnd.nextDouble()) {
 									cols.set(j + "\t" + k);
 									Double tmp = r_j * r_k;
-									tmp /= (Math.min(sqrt_gamma, norms.get(j)) * Math.min(sqrt_gamma, norms.get(k)));
+									tmp /= Math.min(sqrt_gamma, norms.get(j));
+									tmp /= Math.min(sqrt_gamma, norms.get(k));
 									contrib.set(tmp);
 									context.write(cols, contrib);
 								}
