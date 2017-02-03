@@ -20,13 +20,13 @@ object Job {
 
     implicit val sc = new SparkContext()
 
-    // For illustration purposes, we generate a random sparse matrix with 500 000 lines and 1500 columns
+    // For illustration purposes, we generate a random sparse matrix with 100 000 lines and 1500 columns
     // Only 0.01% non zeros entries
     // Then we distribute it using Spark's RDDs
     // This step might take some time.
     // But obviously with real world examples one should have the sparse matrix ready to be loaded
     val rand = new java.util.Random
-    val sparseMat = sprand(500000, 1500, 0.01, rand)
+    val sparseMat = sprand(100000, 1500, 0.01, rand)
     def getRDD(m: SparseMatrix): RDD[Vector] = {
       val columns = m.toArray.grouped(m.numRows)
       val rows = columns.toSeq.transpose
