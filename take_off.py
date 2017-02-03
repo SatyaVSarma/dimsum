@@ -70,10 +70,10 @@ cosine_similarity_A = cosine_similarity(A.T)
 print('----- [OK] Cosine similarity computation of A')
 #%%
 print('----- [Starting] Hadoop jobs')
-norms = 'hadoop jar java.jar MatrixNorm /A.txt /norms'
+norms = 'hadoop jar ./java/java.jar MatrixNorm /A.txt /norms'
 subprocess.call(norms.split(' '))
 print('----- [OK] Columns norms computation')
-dimsum = 'hadoop jar java.jar DimSum /A.txt /B.txt'
+dimsum = 'hadoop jar ./java/java.jar DimSum /A.txt /B.txt'
 subprocess.call(dimsum.split(' '))
 print('----- [OK] Dimsum computation')
 get_B = 'hadoop fs -getmerge /B.txt ./data/B.txt'
