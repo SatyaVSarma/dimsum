@@ -16,10 +16,16 @@ import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 
 /**
+ * 2017 - ENSAE - ELTDM
  * 
- * Implementation of DIMSUM
+ * @author antoine isnardy
+ * @author satya vengathesa sarma 
+ * 
+ * DIMSUM
  * Mapper: see LeanDIMSUMMapper algorithm in the paper
  * Reducer: Sums over all pairs.
+ * 
+ * Output: row, col, value
  *
  */
 public class DimSum {
@@ -28,7 +34,7 @@ public class DimSum {
 		private Text cols = new Text();
 		private DoubleWritable contrib = new DoubleWritable();
 		
-		private final double threshold = 0.1;
+		private final double threshold = 0.2;
 		
 		public void map (Object key, Text value, Context context)
 				throws IOException, InterruptedException {
@@ -99,7 +105,7 @@ public class DimSum {
 	
 	public static void main(String[] args) throws Exception {
 		Configuration conf = new Configuration();
-		Job job = Job.getInstance(conf, "Norm computation");
+		Job job = Job.getInstance(conf, "DIMSUM");
 		job.setJarByClass(MatrixNorm.class);
 		
 		job.setMapperClass(LeanDIMSUMMapper.class);

@@ -4,6 +4,7 @@ import numpy as np
 import subprocess
 from scipy.linalg import norm
 from sklearn.metrics.pairwise import cosine_similarity
+import sys
 #%%
 def savetxt_dense(f_name, x, fmt="%.6g", delimiter=','):
     '''
@@ -27,8 +28,8 @@ Extract from paper
 - Entries of A have been scaled to be in [−1,1]
 '''
 ##### Problem dimensioning
-m = int(1e4) # n_rows
-n = int(1e2) # n_cols
+m = int(sys.argv[1]) # n_rows
+n = int(sys.argv[2]) # n_cols
 L = 3 # Sparsity constraint
 print('---------------------------------------------------------------')
 print('----- Test on matrix size (%i, %i) with sparsity contraint L=%i'%(m, n, L))
@@ -46,6 +47,15 @@ for row in range(A.shape[0]):
 print('----- [OK] Generation of A')
 savetxt_dense('./data/A.txt', A)
 print('----- [OK] Saving of A')
+put_A = 'hadoop fs -put data/A.txt /'
+subprocess.call(put_A.split(' '))
+print('----- [OK] Upload of A to HDFS')
+
+if len(sys.argv) == 4:
+    naive = 'hadoop jar java.jar NaiveComputation /A.txt /naive'
+    subprocess.call(naive.split(' '))
+    print('----- [OK] Naive computation of A.TA')
+    sys.exit()
 #%%
 '''
 Extract from paper
@@ -60,9 +70,6 @@ cosine_similarity_A = cosine_similarity(A.T)
 print('----- [OK] Cosine similarity computation of A')
 #%%
 print('----- [Starting] Hadoop jobs')
-put_A = 'hadoop fs -put data/A.txt /'
-subprocess.call(put_A.split(' '))
-print('----- [OK] Upload of A to HDFS')
 norms = 'hadoop jar java.jar MatrixNorm /A.txt /norms'
 subprocess.call(norms.split(' '))
 print('----- [OK] Columns norms computation')

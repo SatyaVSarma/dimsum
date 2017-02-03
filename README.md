@@ -15,6 +15,12 @@ git clone https://github.com/antisrdy/dimsum
 cd dimsum
 ~~~
 ## Hadoop implementation
+### Naive implementation
+To run the naive computation of A.TA, please run:
+~~~
+python take_off.py m n naive
+~~~
+### DIMSUM implementation
 This subsection tells the reader how to run the algorithm in a distributed mode from scratch:
 - Generation of a large sparse matrix
 - Computation of cosine similarities via Hadoop jobs (DIMSUM algorithm)

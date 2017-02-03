@@ -12,8 +12,12 @@ import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 
 /**
+ * 2017 - ENSAE - ELTDM
  * 
- * Compute matrix norm
+ * @author antoine isnardy
+ * @author satya vengathesa sarma 
+ * 
+ * Matrix norm
  * Mapper: for each row r, emit <column_j, r_ij**2>
  * Combiner: for each column_j, emit <column_j, sum_i(r_ij**2)>
  * Reducer: for each column_j, emit <column_j, sqrt(sum_i(r_ij**2)>

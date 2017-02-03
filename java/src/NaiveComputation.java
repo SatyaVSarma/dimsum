@@ -11,6 +11,10 @@ import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 
 /**
+ * 2017 - ENSAE - ELTDM
+ * 
+ * @author antoine isnardy
+ * @author satya vengathesa sarma 
  * 
  * Naive implementation of DimSum:
  * End goal is to output dot products between columns of A (general term a_ij)
