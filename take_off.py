@@ -31,9 +31,9 @@ Extract from paper
 m = int(sys.argv[1]) # n_rows
 n = int(sys.argv[2]) # n_cols
 L = 3 # Sparsity constraint
-print('---------------------------------------------------------------')
+print('--------------------------------------------------------------------')
 print('----- Test on matrix size (%i, %i) with sparsity contraint L=%i'%(m, n, L))
-print('---------------------------------------------------------------')
+print('--------------------------------------------------------------------')
 #####
 
 ##### Generate A and save it
