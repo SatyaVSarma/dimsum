@@ -31,7 +31,8 @@ public class MatrixNorm {
 		private IntWritable column = new IntWritable();
 		private DoubleWritable product = new DoubleWritable();
 		
-		public void map (Object key, Text value, Context context) throws IOException, InterruptedException {
+		public void map (Object key, Text value, Context context)
+				throws IOException, InterruptedException {
 			
 			String[] row = value.toString().split(","); // row values
 			
@@ -48,7 +49,8 @@ public class MatrixNorm {
 		
 		private DoubleWritable sum_of_squares = new DoubleWritable();
 		
-		public void reduce (IntWritable column, Iterable<DoubleWritable> products, Context context) throws IOException, InterruptedException {
+		public void reduce (IntWritable column, Iterable<DoubleWritable> products, Context context)
+				throws IOException, InterruptedException {
 			Double sum_tmp = 0.0;
 			for (DoubleWritable prod: products) {
 				sum_tmp += prod.get();
@@ -62,7 +64,8 @@ public class MatrixNorm {
 		
 		private DoubleWritable norm = new DoubleWritable();
 		
-		public void reduce (IntWritable column, Iterable<DoubleWritable> products, Context context) throws IOException, InterruptedException {
+		public void reduce (IntWritable column, Iterable<DoubleWritable> products, Context context)
+				throws IOException, InterruptedException {
 			Double sum_tmp = 0.0;
 			for (DoubleWritable prod: products) {
 				sum_tmp += prod.get();
