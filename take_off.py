@@ -18,7 +18,7 @@ def savetxt_dense(f_name, x, fmt="%.6g", delimiter=','):
             fh.write(line + '\n')
     return True
 #%%
-clean_hadoop = 'hadoop fs -rmr /A.txt /B.txt /norms'
+clean_hadoop = 'hadoop fs -rmr /A.txt /B.txt /norms /naive'
 subprocess.call(clean_hadoop.split(' '))
 print('----- [OK] Clean environment')
 #%%
@@ -52,7 +52,7 @@ subprocess.call(put_A.split(' '))
 print('----- [OK] Upload of A to HDFS')
 
 if len(sys.argv) == 4:
-    naive = 'hadoop jar java.jar NaiveComputation /A.txt /naive'
+    naive = 'hadoop jar ./java/java.jar NaiveComputation /A.txt /naive'
     subprocess.call(naive.split(' '))
     print('----- [OK] Naive computation of A.TA')
     sys.exit()
