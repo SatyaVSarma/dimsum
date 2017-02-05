@@ -45,5 +45,5 @@ To run the implementation of DIMSUM in spark for computing column similarities, 
 --packages "com.amazonaws:aws-java-sdk:1.7.4,org.apache.hadoop:hadoop-aws:2.7.1" \
 --executor-memory 13g \
 --driver-memory 13g  \
---class DIMSUM_ENSAE.Job spark.jar
+--class DIMSUM_ENSAE.Job ./spark/spark.jar
 ~~~
