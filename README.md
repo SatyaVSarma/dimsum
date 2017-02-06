@@ -1,16 +1,16 @@
 # Welcome
 Hello, you've reached DIMSUM, a school project realized at ENSAE in February 2017.
 
-End goal is to compute singular values of big matrices, inspired by http://stanford.edu/~rezab/papers/dimsum.pdf
+The objective is to compute singular values and similarities between columns of big matrices, inspired by http://stanford.edu/~rezab/papers/dimsum.pdf
 
-For such a purpose, let's utilize distributed frameworks like **Hadoop** and **Spark**.
+For such a purpose, we will use distributed frameworks like **Hadoop** and **Spark**.
 
 # Requirements
 - Java 8
 - Hadoop 2.7
 - Spark 1.6.0
 
-To run below commands, it is asusmed the reader has a functionnal Hadoop/Spark cluster of machines.
+To run the following commands, it is assumed the reader has a functioning Hadoop/Spark cluster of machines.
 
 # Usage
 In any case, please:
@@ -20,13 +20,13 @@ cd dimsum
 ~~~
 ## Hadoop
 ### Naive implementation
-To run the naive computation of A.TA, please run:
+To run the naive computation of A.TA (dot products), please run:
 ~~~
 python take_off.py m n naive
 ~~~
-`m` and `n` being matrix shape.
+`m` and `n` being the number of rows and columns respectively.
 ### DIMSUM implementation
-This subsection tells the reader how to run the algorithm in a distributed fashion from scratch:
+This subsection explains how to run the algorithm in a distributed fashion, from scratch:
 - Generation of a large sparse matrix
 - Computation of cosine similarities via Hadoop jobs (DIMSUM algorithm)
 - Comparison with true values
